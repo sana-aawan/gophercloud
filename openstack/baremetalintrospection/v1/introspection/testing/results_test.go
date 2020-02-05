@@ -88,6 +88,14 @@ func TestExtraHardware(t *testing.T) {
 	}
 }
 
+func TestIntrospectionData(t *testing.T) {
+	var output introspection.Data
+	err := json.Unmarshal([]byte(IntrospectionDataJSONSample), &output)
+	if err != nil {
+		t.Errorf("Failed to unmarshal Introspection data: %s", err)
+	}
+}
+
 func TestHostnameInInventory(t *testing.T) {
 	inventoryJson := `{
 		"bmc_address":"192.167.2.134",
